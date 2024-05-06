@@ -17,34 +17,19 @@ class SimpleCalculatorRequest
 
     #[Assert\Choice(choices: ['add', 'subtract', 'multiply', 'divide'])]
     public string $operation;
-    #[ApiProperty(
-        openapiContext: [
-            'type' => 'integer'
-        ]
-    )]
-    #[Groups(['simple_calculator_request:write'])]
+
     #[Assert\NotBlank]
     #[Assert\Type(type: 'integer')]
     #[Assert\NotNull]
     public int $firstOperand;
 
-    #[ApiProperty(
-        openapiContext: [
-            'type' => 'integer'
-        ]
-    )]
-    #[Groups(['simple_calculator_request:write'])]
+
     #[Assert\NotBlank]
     #[Assert\Type(type: 'integer')]
     #[Assert\NotNull]
     public int $secondOperand;
 
-    #[ApiProperty(
-        openapiContext: [
-            'type' => 'integer'
-        ]
-    )]
-    #[Groups(['simple_calculator_request:read'])]
+
     public int $result;
 
     public function process(): void
