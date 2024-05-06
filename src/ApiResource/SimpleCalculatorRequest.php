@@ -4,17 +4,17 @@ namespace App\ApiResource;
 
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Post;
-use App\Controller\CalculatorRequestAction;
-use App\State\CalculatorRequestProcessor;
+use App\Controller\SimpleCalculatorRequestAction;
+use App\State\SimpleCalculatorRequestProcessor;
 
 #[ApiResource(
     operations: [
         new Post(
             uriTemplate: "/calculate/simple",
             input: SimpleCalculatorRequest::class,
-            //controller: CalculatorRequestAction::class,
+            //controller: SimpleCalculatorRequestAction::class,
             output: SimpleCalculatorRequest::class,
-            processor: CalculatorRequestProcessor::class
+            processor: SimpleCalculatorRequestProcessor::class
         )
     ]
 )]

@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\ApiResource\SimpleCalculatorRequest;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class CalculatorRequestAction extends AbstractController
+class SimpleCalculatorRequestAction extends AbstractController
 {
     public function __invoke(SimpleCalculatorRequest $data): SimpleCalculatorRequest
     {
