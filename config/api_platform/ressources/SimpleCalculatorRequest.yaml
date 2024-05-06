@@ -1,0 +1,16 @@
+App\ApiResource\SimpleCalculatorRequest:
+  operations:
+    ApiPlatform\Metadata\Post:
+      method: 'POST'
+      uriTemplate: '/calculator/simple'
+      input: App\ApiResource\SimpleCalculatorRequest
+      output: App\ApiResource\SimpleCalculatorRequest
+      processor: App\ApiProcessor\SimpleCalculatorRequestProcessor
+      #controller: App\Controller\SimpleCalculatorRequestController
+      normalizationContext:
+        groups: ['simple_calculator_request:read']
+      denormalizationContext:
+          groups: ['simple_calculator_request:write']
+      openapi:
+        summary: 'Calculate with 2 operands'
+        description: 'This operation allows you to calculate with 2 operands'
