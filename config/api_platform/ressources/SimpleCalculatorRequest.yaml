@@ -2,10 +2,10 @@ App\ApiResource\SimpleCalculatorRequest:
   operations:
     ApiPlatform\Metadata\Post:
       method: 'POST'
-      uriTemplate: '/calculator/simple'
+      uriTemplate: '/calculate/simple'
       input: App\ApiResource\SimpleCalculatorRequest
       output: App\ApiResource\SimpleCalculatorRequest
-      processor: App\ApiProcessor\SimpleCalculatorRequestProcessor
+      processor: App\State\SimpleCalculatorRequestProcessor
       #controller: App\Controller\SimpleCalculatorRequestController
       normalizationContext:
         groups: ['simple_calculator_request:read']
