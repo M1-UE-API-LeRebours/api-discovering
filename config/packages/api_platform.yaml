@@ -1,6 +1,8 @@
 api_platform:
-    title: Hello API Platform
+    title: API discovery
     version: 1.0.0
+    show_webby: false
+    description: API destinée à la découverte de la plateforme API Platform
     formats:
         jsonld: ['application/ld+json','application/json']
     docs_formats:
