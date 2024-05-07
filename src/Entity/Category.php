@@ -2,20 +2,42 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\Put;
 use App\Repository\CategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Attribute\Groups;
 
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
+#[ApiResource(
+    operations:[
+        new GetCollection(
+            normalizationContext: ['groups' => ['category:read']]
+        ),
+        new Post(
+            normalizationContext: ['groups' => ['category:read']]
+        ),
+        new Put(
+            normalizationContext: ['groups' => ['category:read']]
+        ),
+        new Delete()
+    ]
+)]
 class Category
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['category:read'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['game:read','game:read:collection','category:read'])]
     private ?string $label = null;
 
     /**
